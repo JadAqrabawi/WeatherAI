@@ -1,0 +1,21 @@
+# Render Blueprint — single web service (API + static frontend)
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: weather-ai-dashboard
+    runtime: node
+    plan: free
+    buildCommand: npm run install:all && npm run build:client
+    startCommand: NODE_ENV=production npm start --prefix server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: WEATHER_AI_API_KEY
+        sync: false
+      - key: WEATHER_AI_AI
+        value: "true"
+      - key: CLIENT_URL
+        sync: false
