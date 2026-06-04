@@ -5,7 +5,6 @@ A full-stack weather dashboard built for the **WeatherAI developer platform** ta
 **Live demo:** _Add your Render/Railway URL after deploy_  
 **API docs:** https://weather-ai.co/docs
 
----
 
 ## What this demonstrates
 
@@ -173,13 +172,6 @@ Open **http://localhost:5173**
 
 ---
 
-## Email submission template
-
-Reply to the assignment email with:
-
-```
-GitHub: https://github.com/YOUR_USERNAME/weather-ai-dashboard
-Live demo: https://YOUR-SERVICE.onrender.com
 
 Summary:
 - Integrates WeatherAI /v1/weather, /v1/weather-geo, and /v1/usage
@@ -188,7 +180,3 @@ Summary:
 ```
 
 ---
-
-## License
-
-MIT — built as a technical assessment sample.

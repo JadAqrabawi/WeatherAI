@@ -19,9 +19,14 @@ async function resolveCoordinates(req) {
     return { error: 'Provide ?city=Name or ?lat=&lon= coordinates.' };
   }
 
-  const geo = await geocodeCity(city);
-  if (!geo) {
-    return { error: `City "${city}" was not found. Check the spelling and try again.`, status: 404 };
+  try {
+    const geo = await geocodeCity(city);
+    if (!geo) {
+      return { error: `City "${city}" was not found. Check the spelling and try again.`, status: 404 };
+    }
+    return { lat: geo.lat, lon: geo.lon, geo };
+  } catch (err) {
+    return { error: err.message || 'Geocoding failed.', status: err.status ?? 503 };
   }
 
   return { lat: geo.lat, lon: geo.lon, geo };
